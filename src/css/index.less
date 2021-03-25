@@ -1,0 +1,172 @@
+body,
+ul,
+dl,
+dt,
+p,
+h2,
+dd {
+    margin: 0;
+}
+ul,
+p,
+h2 {
+    padding: 0;
+    list-style: none;
+}
+body {
+    background-size: cover;
+}
+
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 15vw;
+    box-sizing: border-box;
+    background: ragb(0,0,0,.2);
+
+    //图片展示区
+    .img {
+        width: 70vw;
+        height: 70vw;
+        background-color: rgba(0, 0, 0, 1);
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 60vw;
+            border-radius: 50%;
+        }
+    }
+    //歌曲信息
+    .message {
+        height: 15vh;
+        margin-top: 3vh;
+        text-align: center;
+        color: #fff;
+        h2 {
+            font-weight: normal;
+            padding-bottom: 3vh;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+    //拖拽区域
+    .player {
+        height: 8vh;
+        line-height: 8vh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        .prevTime {
+            padding: 0 4vw;
+        }
+        .drag {
+            height: 8vw;
+            flex: 1 1 auto;
+            position: relative;
+            .circle {
+                width: 2vw;
+                height: 2vw;
+                border-radius: 50%;
+                border: 2vw solid rgba(0, 0, 0, 0);
+                background-clip: content-box;
+                background-color: #fff;
+
+                position: absolute;
+                left: -3vw;
+                top: 50%;
+                margin-top: -3.5vw;
+
+            }
+            .frontBg,
+            .backBg {
+                height: 0.6vw;
+                width: 100%;
+                background: #fff;
+
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: -0.3vh;
+                width: 0;
+            }
+            .backBg {
+                background: rgba(255, 255, 255, 0.3);
+                width: 100%;
+                z-index: 1;
+            }
+        }
+        .totalTime {
+            padding: 0 4vw;
+        }
+    }
+
+    //底部菜单
+    .control {
+        width: 100vw;
+        height: 16vw;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        li {
+            width: 20%;
+        }
+        li:nth-child(1) {
+            background: url(../images/icon-like.png) no-repeat center/30%;
+            &.liking {
+                background-image: url(../images/icon-like-solid.png);
+            }
+        }
+        li:nth-child(2) {
+            background: url(../images/icon-prev.png) no-repeat center/30%;
+        }
+        li:nth-child(3) {
+            background: url(../images/icon-play.png) no-repeat center/30%;
+            &.playing {
+                background-image: url(../images/icon-pause.png);
+            }
+        }
+        li:nth-child(4) {
+            background: url(../images/icon-next.png) no-repeat center/30%;
+        }
+        li:nth-child(5) {
+            background: url(../images/icon-list.png) no-repeat center/30%;
+        }
+    }
+
+    //弹出菜单
+    .list {
+        
+        width: 100vw;
+        z-index: 4;
+        position: fixed;
+        bottom: 0;
+        background: linear-gradient(rgb(5, 5, 5), rgba(170, 170, 170, 0.95));
+    }
+    dd,
+    dt,
+    .close {
+        height: 12vw;
+        line-height: 12vw;
+        font-size: 16px;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    dt,
+    .close {
+        text-align: center;
+    }
+    dd {
+        padding-left: 3vw;
+        &.active {
+            color: #56b287;
+        }
+    }
+    .close {
+        border-bottom: none;
+    }
+}
